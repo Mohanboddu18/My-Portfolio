@@ -107,7 +107,7 @@ const Index = () => {
     },
     {
       title: "AICTE, Eduskills Certified Python Developer",
-      link: "https://drive.google.com/file/d/1cxhq6ESQHabMsXFvOqd42XO5aFdVlkDN/view?usp=sharing", 
+      link: "https://drive.google.com/file/d/1cxhq6ESQHabMsXFvOqd42XO5aFdVlkDN/view?usp=sharing", // Replace with actual Google Drive link
       description: "Python Development Certification"
     }
   ];
