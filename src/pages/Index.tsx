@@ -98,7 +98,7 @@ const Index = () => {
   ];
   const educationItems = [
     {
-      title: "Bachelor's in Computer Science",
+      title1: "Bachelor's in Computer Science",
     },
     {
       title: "AWS Certified Developer",
