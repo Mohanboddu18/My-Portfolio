@@ -96,18 +96,22 @@ const Index = () => {
       tech: ['HTML', 'CSS']
     }
   ];
+
+  // Education and Certification links updated to Google Drive
   const educationItems = [
     {
-      title1: "Bachelor's in Computer Science",
+      title: "Bachelor's in Computer Science",
+      link: "https://drive.google.com/file/d/your-degree-file-id/view", // Replace with actual Google Drive link
+      description: "Computer Science Degree"
     },
     {
       title: "AWS Certified Developer",
-      link: "https://drive.google.com/file/d/1dDjorvwQP12kMoZnmY_aQlEHPzlr_YDT/view?usp=sharing", 
+      link: "https://drive.google.com/file/d/your-aws-cert-file-id/view", // Replace with actual Google Drive link
       description: "AWS Developer Associate Certification"
     },
     {
       title: "AICTE, Eduskills Certified Python Developer",
-      link: "https://drive.google.com/file/d/1cxhq6ESQHabMsXFvOqd42XO5aFdVlkDN/view?usp=sharing", // Replace with actual Google Drive link
+      link: "https://drive.google.com/file/d/your-python-cert-file-id/view", // Replace with actual Google Drive link
       description: "Python Development Certification"
     }
   ];
@@ -218,7 +222,7 @@ const Index = () => {
                     <div className="w-full bg-gray-700 rounded-full h-2">
                       <div 
                         className="bg-gradient-to-r from-cyan-400 to-purple-400 h-2 rounded-full transition-all duration-1000 ease-out"
-                        style={{ width: `${skill.level}%` }}
+                        style={{ width: ${skill.level}% }}
                       ></div>
                     </div>
                   </div>
@@ -314,20 +318,34 @@ const Index = () => {
               <div>
                 <h3 className="text-xl font-bold mb-4 text-purple-400">Education & Certifications</h3>
                 <ul className="space-y-3 text-gray-300">
-                  {educationItems.map((item, index) => (
-                    <li key={index} className="flex items-start gap-3">
-                      <div className="w-2 h-2 bg-purple-400 rounded-full mt-2 flex-shrink-0"></div>
-                      <a 
-                        href={item.link} 
-                        target="_blank" 
-                        rel="noopener noreferrer"
-                        className="text-gray-300 hover:text-purple-400 transition-colors duration-300 cursor-pointer underline decoration-purple-400/30 hover:decoration-purple-400 underline-offset-2"
-                        title={item.description}
-                      >
-                        {item.title}
-                      </a>
-                    </li>
-                  ))}
+                  <li className="flex items-start gap-3">
+                    <div className="w-2 h-2 bg-purple-400 rounded-full mt-2 flex-shrink-0"></div>
+                    <span>Bachelor's in Computer Science</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <div className="w-2 h-2 bg-purple-400 rounded-full mt-2 flex-shrink-0"></div>
+                    <a 
+                      href="https://drive.google.com/file/d/1dDjorvwQP12kMoZnmY_aQlEHPzlr_YDT/view?usp=sharing"
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="text-gray-300 hover:text-purple-400 transition-colors duration-300 cursor-pointer underline decoration-purple-400/30 hover:decoration-purple-400 underline-offset-2"
+                      title="AWS Developer Associate Certification"
+                    >
+                      AWS Certified Developer
+                    </a>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <div className="w-2 h-2 bg-purple-400 rounded-full mt-2 flex-shrink-0"></div>
+                    <a 
+                      href="https://drive.google.com/file/d/1cxhq6ESQHabMsXFvOqd42XO5aFdVlkDN/view?usp=sharing"
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="text-gray-300 hover:text-purple-400 transition-colors duration-300 cursor-pointer underline decoration-purple-400/30 hover:decoration-purple-400 underline-offset-2"
+                      title="Python Development Certification"
+                    >
+                      AICTE, Eduskills Certified Python Developer
+                    </a>
+                  </li>
                 </ul>
               </div>
             </div>
