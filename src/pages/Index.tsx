@@ -1,4 +1,3 @@
-
 import React, { useEffect, useState } from 'react';
 import { ChevronDown, Download, ExternalLink, Github, Linkedin, Mail, MapPin, Phone } from 'lucide-react';
 
@@ -95,6 +94,20 @@ const Index = () => {
       liveLink: 'https://expense-tracker-web1.netlify.app/',
       githubLink: 'https://github.com/Mohanboddu18/Exppense-tracker',
       tech: ['HTML', 'CSS']
+    }
+  ];
+
+  // Education and Certification links
+  const educationItems = [
+    {
+      title: "AWS Certified Developer",
+      link: "https://drive.google.com/file/d/1dDjorvwQP12kMoZnmY_aQlEHPzlr_YDT/view?usp=sharing",
+      description: "AWS Developer Associate Certification"
+    },
+    {
+      title: "AICTE, Eduskills Certified Python Developer",
+      link: "https://drive.google.com/file/d/1cxhq6ESQHabMsXFvOqd42XO5aFdVlkDN/view?usp=sharing",
+      description: "Python Development Certification"
     }
   ];
 
@@ -204,7 +217,7 @@ const Index = () => {
                     <div className="w-full bg-gray-700 rounded-full h-2">
                       <div 
                         className="bg-gradient-to-r from-cyan-400 to-purple-400 h-2 rounded-full transition-all duration-1000 ease-out"
-                        style={{ width: `${skill.level}%` }}
+                        style={{ width: ${skill.level}% }}
                       ></div>
                     </div>
                   </div>
@@ -300,18 +313,20 @@ const Index = () => {
               <div>
                 <h3 className="text-xl font-bold mb-4 text-purple-400">Education & Certifications</h3>
                 <ul className="space-y-3 text-gray-300">
-                  <li className="flex items-start gap-3">
-                    <div className="w-2 h-2 bg-purple-400 rounded-full mt-2 flex-shrink-0"></div>
-                    <span>Bachelor's in Computer Science</span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <div className="w-2 h-2 bg-purple-400 rounded-full mt-2 flex-shrink-0"></div>
-                    <span>AWS Certified Developer</span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <div className="w-2 h-2 bg-purple-400 rounded-full mt-2 flex-shrink-0"></div>
-                    <span>AICTE , Eduskills Certified Python Developer</span> 
-                  </li>
+                  {educationItems.map((item, index) => (
+                    <li key={index} className="flex items-start gap-3">
+                      <div className="w-2 h-2 bg-purple-400 rounded-full mt-2 flex-shrink-0"></div>
+                      <a 
+                        href={item.link} 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        className="text-gray-300 hover:text-purple-400 transition-colors duration-300 cursor-pointer underline decoration-purple-400/30 hover:decoration-purple-400 underline-offset-2"
+                        title={item.description}
+                      >
+                        {item.title}
+                      </a>
+                    </li>
+                  ))}
                 </ul>
               </div>
             </div>
