@@ -98,11 +98,6 @@ const Index = () => {
   ];
   const educationItems = [
     {
-      title: "Bachelor's in Computer Science",
-      link: "https://drive.google.com/file/d/your-degree-file-id/view", 
-      description: "Computer Science Degree"
-    },
-    {
       title: "AWS Certified Developer",
       link: "https://drive.google.com/file/d/1dDjorvwQP12kMoZnmY_aQlEHPzlr_YDT/view?usp=sharing", 
       description: "AWS Developer Associate Certification"
