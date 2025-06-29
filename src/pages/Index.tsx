@@ -203,7 +203,7 @@ const Index = () => {
                     <div className="w-full bg-gray-700 rounded-full h-2">
                       <div 
                         className="bg-gradient-to-r from-cyan-400 to-purple-400 h-2 rounded-full transition-all duration-1000 ease-out"
-                        style={{ width: ${skill.level}% }}
+                        style={{ width: `${skill.level}%` }}
                       ></div>
                     </div>
                   </div>
@@ -261,31 +261,25 @@ const Index = () => {
       </section>
 
       {/* Resume Section */}
-       <section id="resume" className="py-20 px-6 fade-in-section">
+      <section id="resume" className="py-20 px-6 fade-in-section">
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-4xl font-bold mb-8 bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent">
             Resume
           </h2>
-
+          
           <div className="glass-card p-8 mb-8">
             <p className="text-gray-300 text-lg mb-8">
-              Download my complete resume to learn more about my experience,
-              education, and technical skills.
+              Download my complete resume to learn more about my experience, education, and technical skills.
             </p>
-
-            <button
-              onClick={downloadResume}
-              className="glass-button group mb-8"
-            >
+            
+            <button onClick={downloadResume} className="glass-button group mb-8">
               <Download size={20} className="group-hover:animate-bounce" />
               Download Full Resume
             </button>
-
+            
             <div className="grid md:grid-cols-2 gap-8 text-left">
               <div>
-                <h3 className="text-xl font-bold mb-4 text-cyan-400">
-                  Highlights
-                </h3>
+                <h3 className="text-xl font-bold mb-4 text-cyan-400">Highlights</h3>
                 <ul className="space-y-3 text-gray-300">
                   <li className="flex items-start gap-3">
                     <div className="w-2 h-2 bg-cyan-400 rounded-full mt-2 flex-shrink-0"></div>
@@ -301,11 +295,9 @@ const Index = () => {
                   </li>
                 </ul>
               </div>
-
+              
               <div>
-                <h3 className="text-xl font-bold mb-4 text-purple-400">
-                  Education & Certifications
-                </h3>
+                <h3 className="text-xl font-bold mb-4 text-purple-400">Education & Certifications</h3>
                 <ul className="space-y-3 text-gray-300">
                   <li className="flex items-start gap-3">
                     <div className="w-2 h-2 bg-purple-400 rounded-full mt-2 flex-shrink-0"></div>
@@ -317,7 +309,7 @@ const Index = () => {
                   </li>
                   <li className="flex items-start gap-3">
                     <div className="w-2 h-2 bg-purple-400 rounded-full mt-2 flex-shrink-0"></div>
-                    <span>AICTE , Eduskills Certified Python Developer</span>
+                    <span>AICTE , Eduskills Certified Python Developer</span> 
                   </li>
                 </ul>
               </div>
