@@ -32,7 +32,7 @@ const Index = () => {
       
       return () => clearInterval(typingInterval);
     }
-  }, [currentRoleIndex, isTyping, roles]);
+  }, [currentRoleIndex, isTyping]);
 
   // Scroll animations
   useEffect(() => {
@@ -94,6 +94,21 @@ const Index = () => {
       liveLink: 'https://expense-tracker-web1.netlify.app/',
       githubLink: 'https://github.com/Mohanboddu18/Exppense-tracker',
       tech: ['HTML', 'CSS']
+    }
+  ];
+  const educationItems = [
+    {
+      title: "Bachelor's in Computer Science",
+    },
+    {
+      title: "AWS Certified Developer",
+      link: "https://drive.google.com/file/d/1dDjorvwQP12kMoZnmY_aQlEHPzlr_YDT/view?usp=sharing", 
+      description: "AWS Developer Associate Certification"
+    },
+    {
+      title: "AICTE, Eduskills Certified Python Developer",
+      link: "https://drive.google.com/file/d/1cxhq6ESQHabMsXFvOqd42XO5aFdVlkDN/view?usp=sharing", 
+      description: "Python Development Certification"
     }
   ];
 
@@ -245,11 +260,11 @@ const Index = () => {
                 </div>
                 
                 <div className="flex gap-4">
-                  <a href={project.liveLink} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-cyan-400 hover:text-cyan-300 transition-colors">
+                  <a href={project.liveLink} className="flex items-center gap-2 text-cyan-400 hover:text-cyan-300 transition-colors">
                     <ExternalLink size={16} />
                     Live Demo
                   </a>
-                  <a href={project.githubLink} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-gray-400 hover:text-white transition-colors">
+                  <a href={project.githubLink} className="flex items-center gap-2 text-gray-400 hover:text-white transition-colors">
                     <Github size={16} />
                     Source Code
                   </a>
@@ -299,34 +314,20 @@ const Index = () => {
               <div>
                 <h3 className="text-xl font-bold mb-4 text-purple-400">Education & Certifications</h3>
                 <ul className="space-y-3 text-gray-300">
-                  <li className="flex items-start gap-3">
-                    <div className="w-2 h-2 bg-purple-400 rounded-full mt-2 flex-shrink-0"></div>
-                    <span>Bachelor's in Computer Science</span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <div className="w-2 h-2 bg-purple-400 rounded-full mt-2 flex-shrink-0"></div>
-                    <a 
-                      href="https://drive.google.com/file/d/1dDjorvwQP12kMoZnmY_aQlEHPzlr_YDT/view?usp=sharing"
-                      target="_blank" 
-                      rel="noopener noreferrer"
-                      className="text-gray-300 hover:text-purple-400 transition-colors duration-300 cursor-pointer underline decoration-purple-400/30 hover:decoration-purple-400 underline-offset-2"
-                      title="AWS Developer Associate Certification"
-                    >
-                      AWS Certified Developer
-                    </a>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <div className="w-2 h-2 bg-purple-400 rounded-full mt-2 flex-shrink-0"></div>
-                    <a 
-                      href="https://drive.google.com/file/d/1cxhq6ESQHabMsXFvOqd42XO5aFdVlkDN/view?usp=sharing"
-                      target="_blank" 
-                      rel="noopener noreferrer"
-                      className="text-gray-300 hover:text-purple-400 transition-colors duration-300 cursor-pointer underline decoration-purple-400/30 hover:decoration-purple-400 underline-offset-2"
-                      title="Python Development Certification"
-                    >
-                      AICTE, Eduskills Certified Python Developer
-                    </a>
-                  </li>
+                  {educationItems.map((item, index) => (
+                    <li key={index} className="flex items-start gap-3">
+                      <div className="w-2 h-2 bg-purple-400 rounded-full mt-2 flex-shrink-0"></div>
+                      <a 
+                        href={item.link} 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        className="text-gray-300 hover:text-purple-400 transition-colors duration-300 cursor-pointer underline decoration-purple-400/30 hover:decoration-purple-400 underline-offset-2"
+                        title={item.description}
+                      >
+                        {item.title}
+                      </a>
+                    </li>
+                  ))}
                 </ul>
               </div>
             </div>
@@ -365,13 +366,13 @@ const Index = () => {
               </div>
               
               <div className="flex gap-4 mt-8">
-                <a href="https://www.linkedin.com/in/mohan-boddu-5653a1321" target="_blank" rel="noopener noreferrer" className="social-icon">
+                <a href="https://www.linkedin.com/in/mohan-boddu-5653a1321" className="social-icon">
                   <Linkedin size={24} />
                 </a>
-                <a href="https://github.com/Mohanboddu18" target="_blank" rel="noopener noreferrer" className="social-icon">
+                <a href="https://github.com/Mohanboddu18" className="social-icon">
                   <Github size={24} />
                 </a>
-                <a href="mailto:mohanboddu18@gmail.com" className="social-icon">
+                <a href="mailto:mohanboddu@gmail.com" className="social-icon">
                   <Mail size={24} />
                 </a>
               </div>
@@ -422,37 +423,181 @@ const Index = () => {
         </div>
       </footer>
 
-      <style jsx>{`
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
-        
-        :global(*) {
-          font-family: 'Inter', sans-serif;
-        }
-        
-        :global(.glass-card) {
-          background: rgba(255, 255, 255, 0.05);
-          backdrop-filter: blur(20px);
-          border: 1px solid rgba(255, 255, 255, 0.1);
-          border-radius: 16px;
-          transition: all 0.3s ease;
-        }
-        
-        :global(.glass-card:hover) {
-          background: rgba(255, 255, 255, 0.08);
-          border-color: rgba(0, 255, 255, 0.3);
-          transform: translateY(-5px);
-        }
-        
-        :global(.glass-button) {
-          background: rgba(0, 255, 255, 0.1);
-          backdrop-filter: blur(20px);
-          border: 1px solid rgba(0, 255, 255, 0.3);
-          color: #00ffff;
-          padding: 12px 24px;
-          border-radius: 8px;
-          display: inline-flex;
-          align-items: center;
-          gap: 8px;
-          font-weight: 600;
-          transition: all 0.3s ease;
-          cursor
+      <style dangerouslySetInnerHTML={{
+        __html: `
+          @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+          
+          * {
+            font-family: 'Inter', sans-serif;
+          }
+          
+          .glass-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            transition: all 0.3s ease;
+          }
+          
+          .glass-card:hover {
+            background: rgba(255, 255, 255, 0.08);
+            border-color: rgba(0, 255, 255, 0.3);
+            transform: translateY(-5px);
+          }
+          
+          .glass-button {
+            background: rgba(0, 255, 255, 0.1);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(0, 255, 255, 0.3);
+            color: #00ffff;
+            padding: 12px 24px;
+            border-radius: 8px;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            cursor: pointer;
+          }
+          
+          .glass-button:hover {
+            background: rgba(0, 255, 255, 0.2);
+            border-color: rgba(0, 255, 255, 0.5);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(0, 255, 255, 0.2);
+          }
+          
+          .glass-button-secondary {
+            background: rgba(139, 92, 246, 0.1);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(139, 92, 246, 0.3);
+            color: #8b5cf6;
+            padding: 12px 24px;
+            border-radius: 8px;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            cursor: pointer;
+          }
+          
+          .glass-button-secondary:hover {
+            background: rgba(139, 92, 246, 0.2);
+            border-color: rgba(139, 92, 246, 0.5);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(139, 92, 246, 0.2);
+          }
+          
+          .glass-input {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            padding: 12px 16px;
+            color: white;
+            transition: all 0.3s ease;
+          }
+          
+          .glass-input:focus {
+            outline: none;
+            border-color: rgba(0, 255, 255, 0.5);
+            background: rgba(255, 255, 255, 0.08);
+          }
+          
+          .glass-input::placeholder {
+            color: rgba(255, 255, 255, 0.5);
+          }
+          
+          .social-icon {
+            width: 48px;
+            height: 48px;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #00ffff;
+            transition: all 0.3s ease;
+          }
+          
+          .social-icon:hover {
+            background: rgba(0, 255, 255, 0.1);
+            border-color: rgba(0, 255, 255, 0.3);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 255, 255, 0.2);
+          }
+          
+          .project-card {
+            transition: all 0.3s ease;
+          }
+          
+          .project-card:hover {
+            transform: scale(1.02);
+          }
+          
+          .fade-in-section {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.8s ease;
+          }
+          
+          .fade-in-section.animate-in {
+            opacity: 1;
+            transform: translateY(0);
+          }
+          
+          .skill-item {
+            transform: translateX(-50px);
+            opacity: 0;
+            transition: all 0.6s ease;
+          }
+          
+          .animate-in .skill-item {
+            transform: translateX(0);
+            opacity: 1;
+          }
+          
+          .skill-item:nth-child(1) { transition-delay: 0.1s; }
+          .skill-item:nth-child(2) { transition-delay: 0.2s; }
+          .skill-item:nth-child(3) { transition-delay: 0.3s; }
+          .skill-item:nth-child(4) { transition-delay: 0.4s; }
+          .skill-item:nth-child(5) { transition-delay: 0.5s; }
+          .skill-item:nth-child(6) { transition-delay: 0.6s; }
+          .skill-item:nth-child(7) { transition-delay: 0.7s; }
+          .skill-item:nth-child(8) { transition-delay: 0.8s; }
+          
+          .animate-gradient {
+            background-size: 400% 400%;
+            animation: gradient 4s ease infinite;
+          }
+          
+          @keyframes gradient {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+          }
+          
+          .animate-bounce-slow {
+            animation: bounce-slow 3s ease-in-out infinite;
+          }
+          
+          @keyframes bounce-slow {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+          }
+          
+          @media (max-width: 768px) {
+            .glass-card {
+              margin: 0 16px;
+            }
+          }
+        `
+      }} />
+    </div>
+  );
+};
+
+export default Index;
