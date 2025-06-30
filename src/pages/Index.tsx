@@ -71,7 +71,11 @@ const Index = () => {
   };
 
   const openGoogleDriveLink = (url: string) => {
-    window.open(url, '_blank', 'noopener,noreferrer');
+    // Only open if it's a valid Google Drive URL, otherwise do nothing
+    if (url && url.includes('drive.google.com')) {
+      window.open(url, '_blank', 'noopener,noreferrer');
+    }
+    // For placeholder URLs, do nothing to prevent navigation
   };
 
   const skills = [
@@ -103,7 +107,7 @@ const Index = () => {
 
   // Education and Certification links
   const educationLinks = {
-    degree: 'https://drive.google.com/file/d/your-degree-file-id/view',
+    degree: '',
     awsCert: 'https://drive.google.com/file/d/1dDjorvwQP12kMoZnmY_aQlEHPzlr_YDT/view?usp=sharing',
     pythonCert: 'https://drive.google.com/file/d/1cxhq6ESQHabMsXFvOqd42XO5aFdVlkDN/view?usp=sharing'
   };
@@ -314,8 +318,14 @@ const Index = () => {
                     <li className="flex items-start gap-3">
                       <div className="w-2 h-2 bg-purple-400 rounded-full mt-2 flex-shrink-0"></div>
                       <button 
-                        onClick={() => openGoogleDriveLink(educationLinks.degree)}
-                        className="text-left hover:text-purple-300 transition-colors cursor-pointer"
+                        onClick={(e) => {
+                          e.preventDefault();
+                          e.stopPropagation();
+                          openGoogleDriveLink(educationLinks.degree);
+                        }}
+                        className="text-left hover:text-purple-300 transition-colors cursor-pointer bg-transparent border-none p-0 m-0"
+                        style={{ textDecoration: 'none' }}
+                        type="button"
                       >
                         Bachelor's in Computer Science
                       </button>
@@ -323,8 +333,14 @@ const Index = () => {
                     <li className="flex items-start gap-3">
                       <div className="w-2 h-2 bg-purple-400 rounded-full mt-2 flex-shrink-0"></div>
                       <button 
-                        onClick={() => openGoogleDriveLink(educationLinks.awsCert)}
-                        className="text-left hover:text-purple-300 transition-colors cursor-pointer"
+                        onClick={(e) => {
+                          e.preventDefault();
+                          e.stopPropagation();
+                          openGoogleDriveLink(educationLinks.awsCert);
+                        }}
+                        className="text-left hover:text-purple-300 transition-colors cursor-pointer bg-transparent border-none p-0 m-0"
+                        style={{ textDecoration: 'none' }}
+                        type="button"
                       >
                         AWS Certified Developer
                       </button>
@@ -332,8 +348,14 @@ const Index = () => {
                     <li className="flex items-start gap-3">
                       <div className="w-2 h-2 bg-purple-400 rounded-full mt-2 flex-shrink-0"></div>
                       <button 
-                        onClick={() => openGoogleDriveLink(educationLinks.pythonCert)}
-                        className="text-left hover:text-purple-300 transition-colors cursor-pointer"
+                        onClick={(e) => {
+                          e.preventDefault();
+                          e.stopPropagation();
+                          openGoogleDriveLink(educationLinks.pythonCert);
+                        }}
+                        className="text-left hover:text-purple-300 transition-colors cursor-pointer bg-transparent border-none p-0 m-0"
+                        style={{ textDecoration: 'none' }}
+                        type="button"
                       >
                         AICTE , Eduskills Certified Python Developer
                       </button>
