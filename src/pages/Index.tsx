@@ -1,5 +1,3 @@
-// Update this page (the content is just a fallback if you fail to update the page)
-
 import React, { useEffect, useState } from 'react';
 import { ChevronDown, Download, ExternalLink, Github, Linkedin, Mail, MapPin, Phone } from 'lucide-react';
 import emailjs from '@emailjs/browser';
@@ -98,7 +96,7 @@ const Index = () => {
     }
   };
 
-  // ... keep existing code (typing animation effect)
+  // Typing animation effect
   useEffect(() => {
     const currentRole = roles[currentRoleIndex];
     let currentIndex = 0;
@@ -123,7 +121,7 @@ const Index = () => {
     }
   }, [currentRoleIndex, isTyping]);
 
-  // ... keep existing code (scroll animations)
+  // scroll animations
   useEffect(() => {
     const observerOptions = {
       threshold: 0.1,
@@ -203,14 +201,14 @@ const Index = () => {
   return (
     <>
       <div className="min-h-screen bg-gradient-to-br from-gray-900 via-purple-900 to-gray-900 text-white overflow-x-hidden">
-        {/* ... keep existing code (Animated Background) */}
+        {/* Animated Background */}
         <div className="fixed inset-0 z-0">
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(120,119,198,0.1),transparent)] animate-pulse"></div>
           <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-cyan-500/10 rounded-full blur-3xl animate-bounce-slow"></div>
           <div className="absolute bottom-1/3 right-1/4 w-80 h-80 bg-purple-500/10 rounded-full blur-3xl animate-pulse"></div>
         </div>
 
-        {/* ... keep existing code (Navigation) */}
+        {/* Navigation */}
         <nav className="fixed top-0 w-full z-50 backdrop-blur-lg bg-black/20 border-b border-white/10">
           <div className="max-w-7xl mx-auto px-6 py-4">
             <div className="flex justify-between items-center">
@@ -234,7 +232,7 @@ const Index = () => {
           </div>
         </nav>
 
-        {/* ... keep existing code (Hero Section, About Section, Projects Section, Resume Section) */}
+        {/* Hero Section */}
         <section id="home" className="min-h-screen flex items-center justify-center relative px-6 fade-in-section">
           <div className="text-center max-w-4xl mx-auto">
             <div className="mb-8">
@@ -549,7 +547,7 @@ const Index = () => {
         </footer>
       </div>
 
-      {/* ... keep existing styles */}
+      {/* Styles */}
       <style>{`
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
         
