@@ -104,8 +104,8 @@ const Index = () => {
   // Education and Certification links
   const educationLinks = {
     degree: 'https://drive.google.com/file/d/your-degree-file-id/view',
-    awsCert: 'https://drive.google.com/file/d/your-aws-cert-file-id/view',
-    pythonCert: 'https://drive.google.com/file/d/your-python-cert-file-id/view'
+    awsCert: 'https://drive.google.com/file/d/1dDjorvwQP12kMoZnmY_aQlEHPzlr_YDT/view?usp=sharing',
+    pythonCert: 'https://drive.google.com/file/d/1cxhq6ESQHabMsXFvOqd42XO5aFdVlkDN/view?usp=sharing'
   };
 
   return (
