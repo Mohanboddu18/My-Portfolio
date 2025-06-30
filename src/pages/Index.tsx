@@ -405,18 +405,7 @@ const Index = () => {
                   <ul className="space-y-3 text-gray-300">
                     <li className="flex items-start gap-3">
                       <div className="w-2 h-2 bg-purple-400 rounded-full mt-2 flex-shrink-0"></div>
-                      <button 
-                        onClick={(e) => {
-                          e.preventDefault();
-                          e.stopPropagation();
-                          openGoogleDriveLink(educationLinks.degree);
-                        }}
-                        className="text-left hover:text-purple-300 transition-colors cursor-pointer bg-transparent border-none p-0 m-0"
-                        style={{ textDecoration: 'none' }}
-                        type="button"
-                      >
-                        Bachelor's in Computer Science
-                      </button>
+                      <span>Bachelor's in Computer Science</span>
                     </li>
                     <li className="flex items-start gap-3">
                       <div className="w-2 h-2 bg-purple-400 rounded-full mt-2 flex-shrink-0"></div>
