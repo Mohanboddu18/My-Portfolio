@@ -320,7 +320,7 @@ const Index = () => {
                         onClick={(e) => {
                           e.preventDefault();
                           e.stopPropagation();
-                          openGoogleDriveLink(educationLinks.degree);
+                          openGoogleDriveLink();
                         }}
                         className="text-left hover:text-purple-300 transition-colors cursor-pointer bg-transparent border-none p-0 m-0"
                         style={{ textDecoration: 'none' }}
