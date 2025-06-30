@@ -1,100 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import { ChevronDown, Download, ExternalLink, Github, Linkedin, Mail, MapPin, Phone } from 'lucide-react';
-import emailjs from '@emailjs/browser';
-import { useToast } from "@/hooks/use-toast";
 
 const Index = () => {
   const [activeSection, setActiveSection] = useState('home');
   const [typedText, setTypedText] = useState('');
   const [isTyping, setIsTyping] = useState(true);
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const { toast } = useToast();
   
-  // Form state
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    message: ''
-  });
-
   const roles = ['Full Stack Developer', 'Tech Innovator', 'Problem Solver', 'Code Architect'];
   const [currentRoleIndex, setCurrentRoleIndex] = useState(0);
-
-  // Initialize EmailJS
-  useEffect(() => {
-    emailjs.init("YOUR_PUBLIC_KEY"); // You'll need to replace this with your actual public key
-  }, []);
-
-  // Handle form input changes
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    const { name, value } = e.target;
-    setFormData(prev => ({
-      ...prev,
-      [name]: value
-    }));
-  };
-
-  // Handle form submission
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    
-    // Basic validation
-    if (!formData.name.trim() || !formData.email.trim() || !formData.message.trim()) {
-      toast({
-        title: "Validation Error",
-        description: "Please fill in all fields before submitting.",
-        variant: "destructive",
-      });
-      return;
-    }
-
-    // Email validation
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailRegex.test(formData.email)) {
-      toast({
-        title: "Invalid Email",
-        description: "Please enter a valid email address.",
-        variant: "destructive",
-      });
-      return;
-    }
-
-    setIsSubmitting(true);
-
-    try {
-      // For now, we'll use a mailto approach as a fallback
-      // You can replace this with actual EmailJS service once configured
-      const subject = `Portfolio Contact: Message from ${formData.name}`;
-      const body = `Name: ${formData.name}%0D%0AEmail: ${formData.email}%0D%0A%0D%0AMessage:%0D%0A${formData.message}`;
-      const mailtoLink = `mailto:mohanboddu18@gmail.com?subject=${encodeURIComponent(subject)}&body=${body}`;
-      
-      // Open mailto link
-      window.location.href = mailtoLink;
-      
-      // Show success message
-      toast({
-        title: "Message Sent!",
-        description: "Thank you for your message. I'll get back to you soon!",
-      });
-
-      // Reset form
-      setFormData({
-        name: '',
-        email: '',
-        message: ''
-      });
-
-    } catch (error) {
-      console.error('Error sending message:', error);
-      toast({
-        title: "Error",
-        description: "There was an error sending your message. Please try again or contact me directly.",
-        variant: "destructive",
-      });
-    } finally {
-      setIsSubmitting(false);
-    }
-  };
 
   // Typing animation effect
   useEffect(() => {
@@ -121,7 +34,7 @@ const Index = () => {
     }
   }, [currentRoleIndex, isTyping]);
 
-  // scroll animations
+  // Scroll animations
   useEffect(() => {
     const observerOptions = {
       threshold: 0.1,
@@ -305,7 +218,7 @@ const Index = () => {
                       <div className="w-full bg-gray-700 rounded-full h-2">
                         <div 
                           className="bg-gradient-to-r from-cyan-400 to-purple-400 h-2 rounded-full transition-all duration-1000 ease-out"
-                          style={{ width: `${skill.level}%` }}
+                          style={{ width: ${skill.level}% }}
                         ></div>
                       </div>
                     </div>
@@ -403,7 +316,18 @@ const Index = () => {
                   <ul className="space-y-3 text-gray-300">
                     <li className="flex items-start gap-3">
                       <div className="w-2 h-2 bg-purple-400 rounded-full mt-2 flex-shrink-0"></div>
-                      <span>Bachelor's in Computer Science</span>
+                      <button 
+                        onClick={(e) => {
+                          e.preventDefault();
+                          e.stopPropagation();
+                          openGoogleDriveLink(educationLinks.degree);
+                        }}
+                        className="text-left hover:text-purple-300 transition-colors cursor-pointer bg-transparent border-none p-0 m-0"
+                        style={{ textDecoration: 'none' }}
+                        type="button"
+                      >
+                        Bachelor's in Computer Science
+                      </button>
                     </li>
                     <li className="flex items-start gap-3">
                       <div className="w-2 h-2 bg-purple-400 rounded-full mt-2 flex-shrink-0"></div>
@@ -479,23 +403,19 @@ const Index = () => {
                   <a href="https://github.com/Mohanboddu18" className="social-icon">
                     <Github size={24} />
                   </a>
-                  <a href="mailto:mohanboddu18@gmail.com" className="social-icon">
+                  <a href="mailto:mohanboddu@gmail.com" className="social-icon">
                     <Mail size={24} />
                   </a>
                 </div>
               </div>
               
-              <form onSubmit={handleSubmit} className="glass-card p-8 space-y-6">
+              <form className="glass-card p-8 space-y-6">
                 <div>
                   <label className="block text-sm font-medium mb-2 text-gray-300">Name</label>
                   <input 
                     type="text" 
-                    name="name"
-                    value={formData.name}
-                    onChange={handleInputChange}
                     className="glass-input w-full"
                     placeholder="Your name"
-                    required
                   />
                 </div>
                 
@@ -503,12 +423,8 @@ const Index = () => {
                   <label className="block text-sm font-medium mb-2 text-gray-300">Email</label>
                   <input 
                     type="email" 
-                    name="email"
-                    value={formData.email}
-                    onChange={handleInputChange}
                     className="glass-input w-full"
                     placeholder="your.email@example.com"
-                    required
                   />
                 </div>
                 
@@ -516,21 +432,13 @@ const Index = () => {
                   <label className="block text-sm font-medium mb-2 text-gray-300">Message</label>
                   <textarea 
                     rows={5} 
-                    name="message"
-                    value={formData.message}
-                    onChange={handleInputChange}
                     className="glass-input w-full resize-none"
                     placeholder="Tell me about your project or just say hi!"
-                    required
                   ></textarea>
                 </div>
                 
-                <button 
-                  type="submit" 
-                  disabled={isSubmitting}
-                  className="glass-button w-full disabled:opacity-50 disabled:cursor-not-allowed"
-                >
-                  {isSubmitting ? 'Sending...' : 'Send Message'}
+                <button type="submit" className="glass-button w-full">
+                  Send Message
                 </button>
               </form>
             </div>
@@ -547,7 +455,6 @@ const Index = () => {
         </footer>
       </div>
 
-      {/* Styles */}
       <style>{`
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
         
@@ -578,14 +485,13 @@ const Index = () => {
           border-radius: 8px;
           display: inline-flex;
           align-items: center;
-          justify-content: center;
           gap: 8px;
           font-weight: 600;
           transition: all 0.3s ease;
           cursor: pointer;
         }
         
-        .glass-button:hover:not(:disabled) {
+        .glass-button:hover {
           background: rgba(0, 255, 255, 0.2);
           border-color: rgba(0, 255, 255, 0.5);
           transform: translateY(-2px);
@@ -611,7 +517,7 @@ const Index = () => {
           background: rgba(139, 92, 246, 0.2);
           border-color: rgba(139, 92, 246, 0.5);
           transform: translateY(-2px);
-          box-shadow: 0 10px 20px rgba(139, 92, 246, 0.2);
+          box-shadow: 0 10px 25px rgba(139, 92, 246, 0.2);
         }
         
         .glass-input {
