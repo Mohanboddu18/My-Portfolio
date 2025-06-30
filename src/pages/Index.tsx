@@ -107,6 +107,7 @@ const Index = () => {
 
   // Education and Certification links
   const educationLinks = {
+    degree: 'https://drive.google.com/file/d/your-degree-file-id/view',
     awsCert: 'https://drive.google.com/file/d/1dDjorvwQP12kMoZnmY_aQlEHPzlr_YDT/view?usp=sharing',
     pythonCert: 'https://drive.google.com/file/d/1cxhq6ESQHabMsXFvOqd42XO5aFdVlkDN/view?usp=sharing'
   };
@@ -218,7 +219,7 @@ const Index = () => {
                       <div className="w-full bg-gray-700 rounded-full h-2">
                         <div 
                           className="bg-gradient-to-r from-cyan-400 to-purple-400 h-2 rounded-full transition-all duration-1000 ease-out"
-                          style={{ width: ${skill.level}% }}
+                          style={{ width: `${skill.level}%` }}
                         ></div>
                       </div>
                     </div>
