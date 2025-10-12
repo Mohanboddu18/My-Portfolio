@@ -88,12 +88,12 @@ const Index = () => {
 
   const projects = [
    {
-      title: 'Lottery-Game',
-      description: 'It is a Frontend Application and it is developed with HTML , CSS , JavaScript. It is a fun way to Develop a DOM manupulation.',
-      image: '/Lottery.svg.png',
-      liveLink: 'https://lottery-game-web.netlify.app/',
-      githubLink: 'https://github.com/Mohanboddu18/lottery-game',
-      tech: ['HTML', 'CSS', 'JavaScript']
+      title: 'Ekart-Website',
+      description: 'Developed Ekart, an e-commerce website with product browsing, cart, and secure checkout features..',
+      image: '/Ekart.svg.png',
+      liveLink: 'https://ekart-website.netlify.app/',
+      githubLink: 'https://github.com/Mohanboddu18/Ekart-Website',
+      tech: ['HTML', 'CSS', 'JavaScript', 'Angular']
     },
     {
       title: 'Expense-Tracker',
