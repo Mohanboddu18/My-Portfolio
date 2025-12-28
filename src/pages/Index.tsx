@@ -142,7 +142,7 @@ const Index = () => {
                 ))}
               </div>
             </div>
-          </div>
+          </div>hi
         </nav>
 
         {/* Hero Section */}
